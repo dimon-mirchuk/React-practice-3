@@ -1,7 +1,10 @@
 import PropTypes from "prop-types";
+import { Link, useRouteMatch, useLocation } from "react-router-dom";
 import { FilmList, FilmListItem, Image, Title } from "./Gallery.styled";
 
 const FilmGallery = ({ films, onClickImg }) => {
+  const { url } = useRouteMatch();
+  const location = useLocation();
   if (films.length === 0) return null;
   return (
     <FilmList>
@@ -13,6 +16,14 @@ const FilmGallery = ({ films, onClickImg }) => {
             alt={title}
             onClick={() => onClickImg(img)}
           />
+          <Link
+            to={{
+              pathname: `${url}/${id}`,
+              state: { from: location },
+            }}
+          >
+            About Film
+          </Link>
           {/* <p>{text}</p> */}
         </FilmListItem>
       ))}

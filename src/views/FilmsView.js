@@ -1,12 +1,12 @@
 import { Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-import * as api from "./Service/Service-api";
-import mapper from "./helpers/Mapper";
-import FilmGallery from "./components/filmGallery/FilmGallery";
-import Button from "./components/button/Button";
-import Loader from "./components/loader/Loader";
-import Modal from "./components/modal/Modal";
+import * as api from "../Service/Service-api";
+import mapper from "../helpers/Mapper";
+import FilmGallery from "../components/filmGallery/FilmGallery";
+import Button from "../components/button/Button";
+import Loader from "../components/loader/Loader";
+import Modal from "../components/modal/Modal";
 
 function FilmsView() {
   const [page, setPage] = useState(1);
@@ -46,6 +46,7 @@ function FilmsView() {
   const closeModal = () => {
     setImg("");
   };
+
   return (
     <div>
       <FilmGallery films={film} onClickImg={openModal}></FilmGallery>
